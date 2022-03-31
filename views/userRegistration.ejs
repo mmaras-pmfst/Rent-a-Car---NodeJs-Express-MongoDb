@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="signUp">
+    <div class="title_area">
+      <h1 class="title">Create Account</h1>
+      <p><%= error %></p>
+    </div>
+    <div class="sign">
+      <form action="/user/registration" method="POST">
+        <div class="form_content">
+          <input
+            type="email"
+            name="email"
+            class="form_field2"
+            id="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div class="form_content">
+          <input
+            type="text"
+            class="form_field2"
+            name="username"
+            id="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="form_content">
+          <input
+            type="password"
+            class="form_field2"
+            name="userPassword"
+            id="userPassword"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="form_content">
+          <input
+            type="password"
+            class="form_field2"
+            name="userPassword2"
+            id="userPassword2"
+            placeholder="Confirm password"
+            required
+          />
+        </div>
+        <div class="form_content_button2">
+          <input
+            type="submit"
+            value="Register"
+            class="form_button2"
+            id="userRegister"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="log">
+      <a href="/user/login" class="log_back">LOGIN</a>
+    </div>
+  </body>
+</html>

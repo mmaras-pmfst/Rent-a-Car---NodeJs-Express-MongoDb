@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <script src="/socket.io/socket.io.js"></script>
+
+    <link rel="stylesheet" href="/css/search.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">L-O-G-O</div>
+      <nav>
+        <ul>
+          <li><a class="active" href="/home/search">Home</a></li>
+          <li><a href="#">My reservations</a></li>
+          <li><a href="#">Chat</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="booking-widget">
+      <div class="booking-widget__header">
+        <figure>
+          <img id="carImage" src="/img/homeimage.png" width="345px" height="160px" />
+        </figure>
+      </div>
+      
+      <form>
+        <ul class="booking-widget__form">
+          <div class="tabContainer">
+            <div class="buttonContainer">
+              <button type="button" onclick="showPanel(0,'#f44336')">
+                Details
+              </button>
+              <button type="button" onclick="showPanel(1,'#4caf50')">
+                Insurance
+              </button>
+              <button type="button" onclick="showPanel(2,'#2196f3')">
+                Extras
+              </button>
+            </div>
+            <div class="tabPanel" id="panel1">
+              <strong class="details">Pick-Up location: </strong
+              ><span><%= pickup %></span><br /><br />
+              <strong class="details">Pick-Up time: </strong
+              ><span><%= checkin %></span><br /><br />
+              <strong class="details">Drop-Down location: </strong
+              ><span><%= dropdown %></span><br /><br />
+              <strong class="details">Drop-Down time: </strong
+              ><span><%= checkout %></span><br /><br />
+              <hr />
+              <strong class="details">Insurance: </strong
+              ><span id="insuranceChange">Basic(1000€ deposit)</span
+              ><br /><br />
+              <strong class="details">Extras: </strong
+              ><span id="extraPrice">0</span>€<br /><br />
+              <strong class="details">Total to pay: </strong
+              ><span id="total">0</span>€
+            </div>
+            <div class="tabPanel">
+              <input
+                type="checkbox"
+                name="insurance"
+                id="insurance"
+                class="incurance"
+                onclick="insuranceChange(this)"
+              />
+              <label for="insurance" class="insurance"
+                >Super relax -15€/day-fuel deposit</label
+              ><br /><br />
+              <input
+                type="checkbox"
+                name="insurance"
+                id="insurance2"
+                class="incurance"
+                onclick="insuranceChange(this)"
+              />
+              <label for="insurance2" class="insurance"
+                >Super mega relax -18€/day</label
+              >
+            </div>
+            <div class="tabPanel">
+              <input
+                type="checkbox"
+                name="extras"
+                id="greencard"
+                onclick="extrasChange(this)"
+              />
+              <label for="greencard">Green card - 40€</label><br />
+              <br />
+              <input
+                type="checkbox"
+                name="extras"
+                id="mifi"
+                onclick="extrasChange(this)"
+              />
+              <label for="mifi">Mifi - 25€</label><br /><br />
+              <input
+                type="checkbox"
+                name="extras"
+                id="childseat"
+                onclick="extrasChange(this)"
+              />
+              <label for="childseat">Childseat - 20€</label><br /><br />
+              <input
+                type="checkbox"
+                name="extras"
+                id="booster"
+                onclick="extrasChange(this)"
+              />
+              <label for="booster">Booster - 10€</label>
+            </div>
+          </div>
+        </ul>
+        <div class="searchButton">
+          <input onclick="createReservation()"
+        type="submit"
+        id="bookingSubmit"
+        class="form__submit"
+        value="Book"
+      />
+        </div>
+        
+    </li>
+      </form>
+    </div>
+    <script src="/js/slide.js"></script>
+    <script  type="text/javascript">
+     $(document).ready(function () {
+        const socket = io();
+        console.log("hello2");
+        $(".menu-toggle").click(function () {
+          $("nav").toggleClass("active");
+        });
+      });
+      var category = "<%= category %>";
+      var pickup = "<%= pickup %>";
+      var dropdown = "<%= dropdown %>";
+      var checkin = "<%= checkin %>";
+      var checkout = "<%= checkout %>";
+      var pricePerDay = "<%= price %>";
+      console.log("price per day: "+pricePerDay);
+      document.getElementById("carImage").src=`/img/${category}.png`;
+      let priceForExtras=0;
+      
+      document.getElementById("total").innerHTML = totalDays() * pricePerDay;
+      let totalPrice2=parseInt(document.getElementById("total").innerHTML);
+      let insurance=document.getElementById("insuranceChange").innerHTML;
+      
+      function insuranceChange(checkbox) {
+        var checkboxes = document.getElementsByName("insurance");
+        checkboxes.forEach((item) => {
+          if (item !== checkbox) {
+            item.checked = false;
+            
+          }
+        });
+        let checklabel = $(`label[for='${checkbox.id}']`).text();
+        let parts = checklabel.split("-");
+        document.getElementById("insuranceChange").innerHTML = parts[0];
+        insurance=parts[0];
+        if (
+          document.getElementById("insurance").checked == false &&
+          document.getElementById("insurance2").checked == false
+        ) {
+          document.getElementById("insuranceChange").innerHTML =
+            "Basic(1000€ deposit)";
+        }
+        if (checkbox.checked == true) {
+          let days = totalDays();
+          let totalPrice =
+            parseInt(document.getElementById("total").innerHTML) +
+            parseInt(parts[1].substring(0, parts[1].length - 5)) * days;
+            totalPrice2=totalPrice;
+          document.getElementById("total").innerHTML = totalPrice;
+        }
+        if (checkbox.checked == false) {
+          let days = totalDays();
+          let totalPrice =
+            parseInt(document.getElementById("total").innerHTML) -
+            parseInt(parts[1].substring(0, parts[1].length - 5)) * days;
+            totalPrice2=totalPrice;
+          document.getElementById("total").innerHTML = totalPrice;
+        }
+      }
+
+      let extrases=[];
+      function extrasChange(checkbox) {
+        var checklabel = $(`label[for='${checkbox.id}']`).text();
+        let parts = checklabel.split("-");
+        if (checkbox.checked == true) {
+          extrases.push(parts[0]);
+          console.log("After adding: "+extrases);
+          let extraPrice =
+            parseInt(document.getElementById("extraPrice").innerHTML) +
+            parseInt(parts[1].substring(0, parts[1].length - 1));
+          document.getElementById("extraPrice").innerHTML = extraPrice;
+          priceForExtras=extraPrice;
+          let totalPrice =
+            parseInt(document.getElementById("total").innerHTML) +
+            parseInt(parts[1].substring(0, parts[1].length - 1));
+          document.getElementById("total").innerHTML = totalPrice;
+        }
+        if (checkbox.checked == false) {
+          for (let i = 0; i < extrases.length; i++) {
+            if(extrases[i]===parts[0]){
+              extrases.splice(i,1);
+            }
+            
+          }
+          console.log("After removing: "+extrases);
+          let extraPrice =
+            parseInt(document.getElementById("extraPrice").innerHTML) -
+            parseInt(parts[1].substring(0, parts[1].length - 1));
+          document.getElementById("extraPrice").innerHTML = extraPrice;
+          priceForExtras=extraPrice;
+          let totalPrice =
+            parseInt(document.getElementById("total").innerHTML) -
+            parseInt(parts[1].substring(0, parts[1].length - 1));
+          document.getElementById("total").innerHTML = totalPrice;
+        }
+
+      }
+      function totalDays() {
+        const startDate = checkin.split("T")[0];
+        const endDate = checkout.split("T")[0];
+        const timeDiff = new Date(endDate) - new Date(startDate);
+        const days = timeDiff / (1000 * 60 * 60 * 24);
+        return days;
+      }
+      let nesto;
+      function createReservation(){
+          let reservation={
+            category:category,
+            checkin:checkin,
+            checkout:checkout,
+            pickup:pickup,
+            dropdown:dropdown,
+            priceForCar:pricePerDay,
+            extras:extrases,
+            priceForExtras:priceForExtras,
+            totalPrice:totalPrice2,
+            insurance:insurance
+            
+          };
+        //   $.post("/home/reservation",reservation,function(data, status, jqXHR) {// success callback
+				// 		console.log("nesto");
+				// }).done(function(){alert("successfull!");}).fail(function(){alert("falied");});
+          
+          $.ajax({
+          url: "http://localhost:3000/home/reservation",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(reservation),
+          success: function (response){
+            console.log(response);
+            alert(response);
+            window.location.replace("/home/search");
+          }
+          });     
+       
+        
+      }
+      
+    </script>
+  </body>
+</html>

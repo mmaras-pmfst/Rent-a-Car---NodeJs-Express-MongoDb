@@ -1,0 +1,550 @@
+/* FIRST PAGE main.ejs */
+.firstBody {
+  background-color: #1a1a1a;
+  font-family: Poppins;
+}
+.firstpage {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+.firstButtons {
+  min-height: calc(100vh - 235px);
+  width: 100%;
+
+  /* background-color: yellow; */
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonsList {
+  width: 500px;
+  height: 300px;
+  /* background-color: red; */
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+.buttonsList a {
+  width: 50%;
+
+  display: block;
+  margin: 50px auto;
+}
+
+.buttonsList button {
+  background-color: #e7b744;
+  color: #ffffff;
+  width: 200px;
+  border: none;
+  border-radius: 50px;
+  height: 50px;
+  font-size: large;
+}
+.buttonsList button:hover {
+  cursor: pointer;
+}
+
+/* SignIn page */
+.signIn {
+  background-color: #e7b744;
+  color: #ffffff;
+  font-family: Poppins;
+}
+.title_area {
+  padding-top: 100px;
+}
+.title {
+  text-align: center;
+}
+.login {
+  padding-top: 10px;
+  min-height: calc(100vh - 200px - 90px);
+}
+.form_content {
+  padding-top: 40px;
+  text-align: center;
+}
+.form_field {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 250px;
+  font-size: large;
+  background-color: #e7b744;
+  color: #ffffff;
+  outline: none;
+}
+.form_field::selection {
+  background-color: #e7b744;
+}
+.form_field::placeholder {
+  color: #ffffff;
+}
+.forgot {
+  color: #1a1a1a;
+}
+
+.form_content_button {
+  padding-top: 50px;
+  text-align: center;
+}
+.form_button {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  width: 200px;
+  border: none;
+  border-radius: 50px;
+  height: 50px;
+  font-size: large;
+}
+.create_account {
+  color: #1a1a1a;
+}
+.create {
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: large;
+}
+
+/* SignUp page */
+.signUp {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-family: Poppins;
+}
+.sign {
+  min-height: calc(100vh - 200px - 50px);
+}
+.form_field2 {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 250px;
+  font-size: large;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  outline: none;
+}
+.form_field2::selection {
+  background-color: #1a1a1a;
+}
+.form_field2::placeholder {
+  color: #ffffff;
+}
+.form_content_button2 {
+  padding-top: 50px;
+  text-align: center;
+}
+.form_button2 {
+  background-color: #e7b744;
+  color: #ffffff;
+  width: 200px;
+  border: none;
+  border-radius: 50px;
+  height: 50px;
+  font-size: large;
+}
+
+.log_back {
+  color: #e7b744;
+}
+.log {
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: large;
+}
+
+/* Admin login Page */
+.adminLogin {
+  background-color: #e7b744;
+  color: #1a1a1a;
+  font-family: Poppins;
+}
+.design {
+  position: absolute;
+  background-color: white;
+  height: 60%;
+  bottom: 0;
+  left: 5%;
+  right: 5%;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
+}
+.adminLogo {
+  padding-top: 75px;
+  text-align: center;
+}
+.admin_title_area {
+  text-align: center;
+}
+.form_field3 {
+  border-radius: 10px;
+  width: 250px;
+  height: 30px;
+  font-size: large;
+  background-color: white;
+  color: #1a1a1a;
+  outline: none;
+}
+.form_field3::selection {
+  background-color: white;
+}
+.form_field3::placeholder {
+  color: #1a1a1a;
+}
+.form_content_button3 {
+  padding-top: 50px;
+  text-align: center;
+}
+.form_button3 {
+  background-color: #e7b744;
+  color: #ffffff;
+  width: 200px;
+  border: none;
+  border-radius: 50px;
+  height: 50px;
+  font-size: large;
+}
+/* adminHomePage.ejs */
+.adminHomeBody {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url(/img/1.2.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.bg-modal2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal-content2 {
+  width: 370px;
+  height: 600px;
+  background-color: #d9d9d9;
+  color: #333;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 35px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 100px;
+  background: #262626;
+  width: 100%;
+  box-sizing: border-box;
+}
+header .logo {
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  float: left;
+  font-weight: bold;
+}
+header nav {
+  float: right;
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+header nav ul li {
+  list-style: none;
+}
+header nav ul li a {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+header nav ul li a:hover,
+header nav ul li a.active {
+  color: #fff;
+  background: #e7b744;
+}
+.activeLog:hover {
+  color: #fff;
+  background: red;
+}
+.menu-toggle {
+  color: #fff;
+  float: right;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* reservationList.ejs */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.reservationsBody {
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: #706d6d;
+  color: white;
+  padding: 60px 0 80px 0;
+}
+.reservationsBody h1 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #e7b744;
+}
+.mainContent {
+  height: 500px;
+  width: 100%;
+  overflow: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* border: 3px solid red; */
+}
+.onePage {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 50px;
+  background: #e7b744;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: 500;
+  /* color: #696969; */
+  color: #fff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.leftDiv {
+  flex: 1;
+
+  padding: 5px;
+}
+.plate {
+  float: left;
+}
+.user {
+  float: right;
+}
+
+.rightDiv {
+  flex: 1;
+
+  align-items: center;
+  text-align: right;
+}
+
+.onePage2 {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 50px;
+  background: #450920;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.leftDiv2 {
+  flex: 1;
+
+  padding: 5px;
+}
+.plate2 {
+  float: left;
+}
+.user2 {
+  float: right;
+}
+
+.rightDiv2 {
+  flex: 1;
+
+  align-items: center;
+  text-align: right;
+}
+
+.modal-content2 h1 {
+  color: #333;
+}
+.modal-content h1 {
+  color: #333;
+}
+.modal-content p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  text-align: left;
+}
+.modal-content2 p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  text-align: left;
+}
+.complete {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  justify-content: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.complete:hover {
+  fill: red;
+}
+@media (max-width: 990px) {
+  header {
+    padding: 0 20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  header nav {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background: #333;
+    top: 50px;
+    left: -100%;
+    transition: 0.5s;
+  }
+  header nav.active {
+    left: 0;
+  }
+  header nav ul {
+    display: block;
+    text-align: center;
+  }
+  header nav ul li a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal-content {
+  width: 370px;
+  height: 600px;
+  background-color: #d9d9d9;
+  color: #333;
+  /* background-color: #e6fafc; */
+  /* background-color: #a9b4c2; */
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+.adminForm-input,
+select {
+  width: 50%;
+  padding: 10px 5px;
+  margin: 5px auto;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e8f0ff;
+  display: block;
+
+  /* height: 22px;
+  font-size: 21px;
+  width: 50%;
+  display: block;
+  margin: 15px auto; */
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 35px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.btnYellow {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  background-color: #f1c40f;
+}
+.btnYellow:hover {
+  background-color: #ffde29;
+}
+/* add new car form */
+/* .bg-modal2 {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal-content2 {
+  width: 500px;
+  height: 360px;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+} */

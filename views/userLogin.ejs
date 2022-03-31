@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="signIn">
+    <div class="title_area">
+      <h1 class="title">Welcome Back!</h1>
+      <h4 class="title">Login to continue</h4>
+      <p><%= error %></p>
+    </div>
+    <div class="login">
+      <form action="/user/login" method="POST">
+        <div class="form_content">
+          <input
+            class="form_field"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="form_content">
+          <input
+            class="form_field"
+            type="password"
+            name="userPassword"
+            id="userPassword"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="form_content">
+          <a href="#" class="forgot">Forgot Password?</a>
+        </div>
+        <div class="form_content_button">
+          <input
+            class="form_button"
+            type="submit"
+            id="userLogin"
+            value="Login"
+          />
+        </div>
+      </form>
+    </div>
+    <div class="create">
+      <a href="/user/registration" class="create_account">CREATE ACCOUNT</a>
+    </div>
+  </body>
+</html>

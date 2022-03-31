@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/search.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">-L-O-G-O-</div>
+      <nav>
+        <ul>
+          <li><a class="active" href="/home/search">Home</a></li>
+          <li><a href="/home/myreservations">My reservations</a></li>
+          <li><a href="/home/chat">Chat</a></li>
+          <li><a href="/home/logout">Logout</a></li>
+        </ul>
+      </nav>
+      <div onclick="menu()" class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="booking-widget" id="removepic">
+      <div class="booking-widget__header">
+        <figure>
+          <img src="/img/homeimage.png" width="345px" height="185px" />
+        </figure>
+      </div>
+
+      <form action="/home/search" method="POST" id="removepic">
+        <ul class="booking-widget__form">
+          <li>
+            <h2 class="title">Rent a car</h2>
+
+            <label for="check-in">Check in</label>
+            <div id="check-in" class="form-field">
+              <input
+                class="check"
+                name="checkin"
+                type="datetime-local"
+                value=""
+                required
+              />
+            </div>
+          </li>
+          <li>
+            <label for="check-in">Check out</label>
+            <div id="check-out" class="form-field">
+              <input
+                class="check"
+                name="checkout"
+                type="datetime-local"
+                value=""
+                required
+              />
+            </div>
+          </li>
+          <li></li>
+          <li>
+            <div class="form__dropdown">
+              <label for="adultsAmount">PickUp</label>
+              <div class="form-field">
+                <select name="pickUp" id="adultsAmount" required>
+                  <option value="Split">Split</option>
+                  <option value="Zagreb">Zagreb</option>
+                  <option value="Dubrovnik">Dubrovnik</option>
+                  <option value="Rijeka">Rijeka</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__dropdown">
+              <label for="childrenAmount">DropDown </label>
+              <br />
+              <div class="form-field">
+                <select name="dropDown" id="adultsAmount" required>
+                  <option value="Split">Split</option>
+                  <option value="Zagreb">Zagreb</option>
+                  <option value="Dubrovnik">Dubrovnik</option>
+                  <option value="Rijeka">Rijeka</option>
+                </select>
+              </div>
+            </div>
+          </li>
+          <li class="searchButton">
+            <input
+              type="submit"
+              id="bookingSubmit"
+              class="form__submit"
+              value="Search cars"
+            />
+          </li>
+        </ul>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+      var toggle = false;
+      function menu() {
+        $("nav").toggleClass("active");
+        if (toggle == false) {
+          console.log("opening...");
+          document.getElementById("removepic").style.visibility = "hidden";
+          toggle = true;
+        } else if (toggle == true) {
+          console.log("closing...");
+          setTimeout(showAll, 220);
+
+          toggle = false;
+        }
+      }
+      function showAll() {
+        document.getElementById("removepic").style.visibility = "visible";
+      }
+      // function myReservations() {
+      //   $.get("/home/myreservations", (data) => {
+      //     console.log("This is data: ");
+      //     console.log(data);
+      //   });
+      // }
+    </script>
+  </body>
+</html>

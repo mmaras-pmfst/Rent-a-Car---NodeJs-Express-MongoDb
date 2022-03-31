@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="adminLogin">
+    <div class="adminLogo">
+      <img src="/img/admin.png" width="100px" height="100px" alt="" srcset="" />
+    </div>
+    <div class="design">
+      <div class="admin_title_area">
+        <h1>Admin login</h1>
+        <p><%= error %></p>
+        <hr />
+      </div>
+      <div class="mainLogin">
+        <form action="/user/adminlogin" method="POST">
+          <div class="form_content">
+            <input
+              type="text"
+              class="form_field3"
+              id="username"
+              name="username"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form_content">
+            <input
+              type="password"
+              class="form_field3"
+              id="adminPassword"
+              name="adminPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form_content_button3">
+            <input
+              type="submit"
+              id="adminLogin"
+              class="form_button3"
+              value="Login"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

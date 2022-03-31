@@ -1,0 +1,396 @@
+body {
+  font-family: "Gotham Book", Open Sans, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d9d9d9;
+  /* background-color: #706d6d; */
+  font-size: 100%;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 100px;
+  background: #262626;
+  width: 100%;
+  box-sizing: border-box;
+}
+header .logo {
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  font-size: 24px;
+  float: left;
+  font-weight: bold;
+}
+header nav {
+  float: right;
+}
+header nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+header nav ul li {
+  list-style: none;
+}
+header nav ul li a {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+header nav ul li a:hover,
+header nav ul li a.active {
+  color: #fff;
+  background: #e7b744;
+}
+.menu-toggle {
+  color: #fff;
+  float: right;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+.booking-widget {
+  margin: 90px auto;
+}
+
+.booking-widget {
+  box-sizing: border-box;
+  width: 345px;
+  min-height: 605px;
+  padding-bottom: 1px;
+  /* background-color: #fbfbfb; */
+  /* background-color: #c0c0c0; */
+  background-color: #a9a9a9;
+  /* background-color: #333333; */
+  /* color: #e7b744; */
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.44);
+}
+.booking-widget .title {
+  color: #e7b744;
+  text-align: center;
+}
+.booking-widget__header {
+  width: 100%;
+  height: 185px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.44);
+}
+
+.booking-widget__header figure {
+  margin: 0;
+  padding: 0;
+}
+
+.header-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 25px;
+  color: white;
+}
+
+.header-caption h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+
+.booking-widget__form {
+  list-style-type: none;
+  padding: 0 25px 0 25px;
+  margin: 0;
+  /* text-align: center; */
+}
+
+.booking-widget__form li {
+  margin: 25px 0;
+}
+
+.form-field {
+  position: relative;
+  background-color: #f4f4f4;
+  margin-top: 10px;
+  box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.form-field__checkbox {
+  display: inline-block;
+  width: 20px;
+}
+
+.form-field__checkbox input[type="checkbox"] {
+  width: 100%;
+  opacity: 0;
+}
+
+.form-field__checkbox input[type="checkbox"]:checked {
+  opacity: 1;
+}
+
+.form-field label {
+  color: #666666;
+}
+
+.datepicker,
+.select-button {
+  box-sizing: border-box;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  line-height: 38px;
+  background-color: #414b59;
+  color: white;
+}
+
+.form-field input[type="text"],
+.form__dropdown select {
+  height: 45px;
+  width: 100%;
+  padding: 0 0 0 3px;
+  background-color: #f4f4f4;
+  border: none;
+}
+
+.form__dropdown {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 45%;
+  padding: 5px;
+}
+
+.form__dropdown:last-child {
+  float: right;
+}
+
+.form__submit {
+  width: 50%;
+  /* width: 100%; */
+  height: 58px;
+  border: 1px solid transparent;
+  font-size: 17px;
+  font-weight: bold;
+  /* background-color: #fb6362; */
+  background-color: #e7b744;
+  color: white;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 1px 0 darkgrey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.searchButton {
+  text-align: center;
+}
+
+.check {
+  font-size: 1.5rem;
+}
+#adultsAmount {
+  font-size: 1rem;
+}
+
+.tabContainer {
+  width: 100%;
+  padding: 15px;
+  padding-top: 30px;
+}
+.tabContainer .buttonContainer {
+  height: 15%;
+  margin-bottom: 15px;
+}
+.tabContainer .buttonContainer button {
+  width: 30%;
+  border: none;
+  border-radius: 7%;
+  cursor: pointer;
+  padding: 10px;
+  outline: none;
+  font-size: 15px;
+  background-color: #eee;
+}
+
+.tabContainer .tabPanel {
+  height: 85%;
+  background-color: gray;
+  color: #262626;
+
+  padding-top: 15px;
+  box-sizing: border-box;
+
+  display: none;
+}
+#panel1 {
+  font-size: 13px;
+}
+.insurance {
+  font-size: 16px;
+}
+
+/* myReservations.ejs*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.reservationsBody {
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: #706d6d;
+  color: white;
+  padding: 60px 0 0px 0;
+  /* padding: 60px 0 80px 0; */
+}
+.reservationsBody h1 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  text-align: center;
+  color: #e7b744;
+}
+.mainContent {
+  height: 500px;
+  width: 100%;
+  overflow: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  /* border: 3px solid red; */
+}
+.onePage {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  height: 50px;
+  background: #e7b744;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: 500;
+  color: #696969;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.leftDiv {
+  flex: 1;
+
+  background: #e7b744;
+  padding: 5px;
+}
+.plate {
+  float: left;
+}
+.user {
+  float: right;
+}
+
+.rightDiv {
+  flex: 1;
+
+  background: #e7b744;
+
+  align-items: center;
+  text-align: right;
+}
+.complete {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background: none;
+  border: 0px;
+  box-shadow: none;
+  outline: none;
+
+  justify-content: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.complete:hover {
+  fill: red;
+}
+
+/* one reservation details*/
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.modal-content {
+  width: 370px;
+  height: 600px;
+  background-color: #d9d9d9;
+  color: #333333;
+
+  /* background-color: #e6fafc; */
+  /* background-color: #a9b4c2; */
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+.modal-content p {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-size: 15px;
+  text-align: left;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  font-size: 35px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+
+@media (max-width: 990px) {
+  header {
+    padding: 0 20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  header nav {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background: #333;
+    top: 50px;
+    left: -100%;
+    transition: 0.5s;
+  }
+
+  header nav.active {
+    left: 0;
+  }
+  header nav ul {
+    display: block;
+    text-align: center;
+  }
+  header nav ul li a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
